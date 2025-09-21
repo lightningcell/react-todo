@@ -1,34 +1,25 @@
 import React from "react";
+import NavigationItem from "./NavigationItem";
+import type { NavigationItemProps } from "./NavigationItem";
 import '../BottomBar.css';
 
-const BottomBar: React.FC = () => {
+interface BottomBarProps {
+    navigationItems: NavigationItemProps[];
+}
+
+const BottomBar: React.FC<BottomBarProps> = ({ navigationItems }) => {
     return (
         <nav className="bottom-bar">
             <ul className="bottom-bar__list">
-                <li className="bottom-bar__item">
-                    <a href="#">
-                        <i className="fa fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li className="bottom-bar__item">
-                    <a href="#">
-                        <i className="fa fa-tasks" aria-hidden="true"></i>
-                        <span>Tasks</span>
-                    </a>
-                </li>
-                <li className="bottom-bar__item">
-                    <a href="#">
-                        <i className="fa fa-rocket" aria-hidden="true"></i>
-                        <span>Goals</span>
-                    </a>
-                </li>
-                <li className="bottom-bar__item">
-                    <a href="#">
-                        <i className="fa fa-chart-bar" aria-hidden="true"></i>
-                        <span>Stats</span>
-                    </a>
-                </li>
+                {navigationItems.map((item, index) => (
+                    <NavigationItem
+                        key={index}
+                        title={item.title}
+                        iconClass={item.iconClass}
+                        isActive={item.isActive}
+                        onClick={item.onClick}
+                    />
+                ))}
             </ul>
         </nav>
     )

@@ -33,3 +33,7 @@
 .bottom-bar__item a:hover {
   color: white;
 }
+
+.bottom-bar__item--active a {
+  color: #3c81ef;
+}
