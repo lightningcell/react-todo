@@ -7,25 +7,21 @@ interface NavigationItemProps {
     iconClass?: string;
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({
-    title,
-    isActive = false,
+const NavigationItem: React.FC<NavigationItemProps> = ({ 
+    title, 
+    iconClass, 
     onClick,
-    iconClass
+    isActive = false
 }) => {
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        if (onClick) {
-            onClick();
-        }
-    };
-
     return (
-        <li className={`bottom-bar__item ${isActive ? 'bottom-bar__item--active' : ''}`}>
-            <a href="#" onClick={handleClick}>
-                {iconClass && <i className={iconClass} aria-hidden="true"></i>}
-                <span>{title}</span>
-            </a>
+        <li className={`navigation-item ${isActive ? 'navigation-item--active' : ''}`}>
+            <button 
+                className="navigation-item__button"
+                onClick={onClick}
+            >
+                <i className={iconClass}></i>
+                <span className="navigation-item__title">{title}</span>
+            </button>
         </li>
     );
 };

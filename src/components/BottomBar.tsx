@@ -8,6 +8,15 @@ interface BottomBarProps {
 }
 
 const BottomBar: React.FC<BottomBarProps> = ({ navigationItems }) => {
+    const [activeItem, setActiveItem] = React.useState<string | null>(navigationItems[0]?.title || null);
+
+    const handleItemClick = (item: NavigationItemProps, index: number) => {
+        setActiveItem(item.title);
+        if (item.onClick) {
+            item.onClick();
+        }
+    };
+
     return (
         <nav className="bottom-bar">
             <ul className="bottom-bar__list">
@@ -16,8 +25,8 @@ const BottomBar: React.FC<BottomBarProps> = ({ navigationItems }) => {
                         key={index}
                         title={item.title}
                         iconClass={item.iconClass}
-                        isActive={item.isActive}
-                        onClick={item.onClick}
+                        isActive={activeItem === item.title}
+                        onClick={() => handleItemClick(item, index)}
                     />
                 ))}
             </ul>
