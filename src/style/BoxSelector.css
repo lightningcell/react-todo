@@ -4,7 +4,6 @@
 }
 
 .box-selector-option {
-    padding: 8px 20px;
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.45s;
@@ -29,6 +28,12 @@
     background-color: var(--secondary-bg-color);
     border: 1px solid var(--primary-border-color);
     border-radius: 12px;
+    padding: 6px 10px;
+}
+
+.box-selector--compact .box-selector-option {
+    padding: 3px 10px;
+    margin: 0 2px;
 }
 
 .box-selector--pill {
