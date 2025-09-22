@@ -1,21 +1,49 @@
 .box-selector {
     display: flex;
-    border: 1px solid var(--primary-border-color);
-    border-radius: 8px;
     width: max-content;
-    background-color: var(--secondary-bg-color);
 }
 
 .box-selector-option {
     padding: 8px 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.45s;
     text-align: center;
     color: var(--secondary-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .box-selector-option.selected {
     background-color: var(--primary-color);
+    color: white;
+}
+
+.box-selector-option i {
+    font-size: 12px;
+}
+
+.box-selector--compact {
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--primary-border-color);
+    border-radius: 12px;
+}
+
+.box-selector--pill {
+    gap: 8px;
+}
+
+.box-selector--pill .box-selector-option {
+    border: 1px solid var(--primary-border-color);
+    background-color: var(--secondary-bg-color);
+    padding: 6px 12px;
+    color: white;
+    border-radius: 12px;
+}
+
+.box-selector--pill .box-selector-option.selected {
+    border-color: var(--primary-color);
     color: white;
 }

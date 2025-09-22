@@ -14,8 +14,19 @@ function App() {
     <>
       <div className="app-main">
         <TextBox placeholder="Search tasks..." value="" onChange={(val) => console.log(val)} />
-        <BoxSelector options={["All", "Active", "Completed"]} selectedOption="All" onSelect={(option) => console.log(option)} />
+        <BoxSelector
+          options={[
+            { option: "All", onClick: () => console.log("All clicked") },
+            { option: "Active", onClick: () => console.log("Active clicked") },
+            { option: "Completed", onClick: () => console.log("Completed clicked") }
+          ]}
+          selectedOption="All" onSelect={(option) => console.log(option)} style='compact' />
 
+        <BoxSelector options={[
+          { option: "Date", iconClass: "fa fa-calendar", onClick: () => console.log("Date clicked") },
+          { option: "Priority", iconClass: "fa fa-exclamation-circle", onClick: () => console.log("Priority clicked") },
+          { option: "Alphabetical", iconClass: "fa fa-sort-alpha-down", onClick: () => console.log("Alphabetical clicked") }
+        ]} selectedOption="Date" onSelect={(option) => console.log(option)} style='pill' />
       </div>
       <BottomBar navigationItems={navigationItems} />
     </>

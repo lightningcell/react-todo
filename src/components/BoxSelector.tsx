@@ -1,13 +1,20 @@
 import React from "react";
 import '../BoxSelector.css';
 
-interface BoxSelectorProps {
-    options: string[];
-    selectedOption: string;
-    onSelect: (option: string) => void;
+interface BoxOptionProps {
+    option: string;
+    iconClass?: string;
+    onClick: () => void;
 }
 
-const BoxSelector: React.FC<BoxSelectorProps> = ({ options, selectedOption, onSelect }) => {
+interface BoxSelectorProps {
+    options: BoxOptionProps[];
+    selectedOption: string;
+    onSelect: (option: string) => void;
+    style: "compact" | "pill";
+}
+
+const BoxSelector: React.FC<BoxSelectorProps> = ({ options, selectedOption, onSelect, style }) => {
     const [currentSelected, setCurrentSelected] = React.useState(selectedOption);
 
     React.useEffect(() => {
@@ -20,14 +27,15 @@ const BoxSelector: React.FC<BoxSelectorProps> = ({ options, selectedOption, onSe
     };
 
     return (
-        <div className="box-selector">
+        <div className={`box-selector box-selector--${style}`}>
             {options.map((option) => (
                 <div
-                    key={option}
-                    className={`box-selector-option ${option === currentSelected ? "selected" : ""}`}
-                    onClick={() => handleSelect(option)}
+                    key={option.option}
+                    className={`box-selector-option ${option.option === currentSelected ? "selected" : ""}`}
+                    onClick={() => handleSelect(option.option)}
                 >
-                    {option}
+                    {option.iconClass && <i className={option.iconClass}></i>}
+                    {option.option}
                 </div>
             ))}
         </div>
