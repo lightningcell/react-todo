@@ -1,7 +1,7 @@
 import React from "react";
 import NavigationItem from "./NavigationItem";
 import type { NavigationItemProps } from "./NavigationItem";
-import '../BottomBar.css';
+import '../style/BottomBar.css';
 
 interface BottomBarProps {
     navigationItems: NavigationItemProps[];

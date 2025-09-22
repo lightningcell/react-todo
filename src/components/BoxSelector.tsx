@@ -1,5 +1,5 @@
 import React from "react";
-import '../BoxSelector.css';
+import '../style/BoxSelector.css';
 
 interface BoxOptionProps {
     option: string;

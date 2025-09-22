@@ -1,4 +1,4 @@
-import './App.css'
+import './style/App.css'
 import BottomBar from './components/BottomBar'
 import BoxSelector from './components/BoxSelector';
 import TextBox from './components/TextBox'
